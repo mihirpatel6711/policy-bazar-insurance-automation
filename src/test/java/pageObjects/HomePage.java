@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 	
-	
+	Actions act=new Actions(driver);
 	public HomePage(WebDriver driver)
 	{
 		super(driver);
@@ -32,7 +32,7 @@ public class HomePage extends BasePage {
 
 
 		//Health Insurance
-		@FindBy(xpath="//div[@class='ruby-col-3 hidden-md']//span[text()='Health Insurance Companies']/parent::a")
+		@FindBy(xpath="/html/body/div[6]/div[2]/div/ul/li[2]/div/div/div[3]/h3/a")
 		WebElement healthInsurance;
 
 
@@ -42,15 +42,15 @@ public class HomePage extends BasePage {
 
 		//Hovering on the Insurance product
 		public void HoverOnInsuranceProducts() {
-			Actions act=new Actions(driver);
+			
 			act.moveToElement(insuranceProductsButton).perform();
 		}
 
 
 		//Selecting the Health insurance 
 		public void healthInsuranceClick() {
-			Actions act=new Actions(driver);
-			act.doubleClick(healthInsurance).perform();
+
+			healthInsurance.click();
 		}
 
 		//Navigating to the Car Insurance Page
