@@ -22,7 +22,7 @@ public class DataProviders {
 		String travelInsuranceData[][] = new String [totalrows][totalcols];
 		
 		for (int i=1;i<= totalrows;i++) {
-			for (int j=0; j<=totalcols; j++) {
+			for (int j=0; j<totalcols; j++) {
 				travelInsuranceData[i-1][j] = xlutil.getCellData("Sheet1",i,j);
 				
 				
@@ -45,7 +45,7 @@ public class DataProviders {
 		String carInsuranceData[][] = new String [totalrows][totalcols];
 		
 		for (int i=1;i<= totalrows;i++) {
-			for (int j=0; j<=totalcols; j++) {
+			for (int j=0; j<totalcols; j++) {
 				carInsuranceData[i-1][j] = xlutil.getCellData("Sheet1",i,j);
 				
 				
