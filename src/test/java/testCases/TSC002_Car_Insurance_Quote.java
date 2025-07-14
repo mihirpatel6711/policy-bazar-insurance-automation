@@ -14,10 +14,11 @@ import org.testng.annotations.Test;
 import utilities.DataProviders;
 import pageObjects.CarInsurancePage;
 import pageObjects.HomePage;
+import testBase.BaseClass;
 
 
-public class TSC002_Car_Insurance_Quote {
-	 WebDriver driver;
+public class TSC002_Car_Insurance_Quote extends BaseClass{
+	 
 	 HomePage homePage;
 	 CarInsurancePage insurancePage;
 	 

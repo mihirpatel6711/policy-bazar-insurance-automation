@@ -6,14 +6,19 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import pageObjects.HealthInsurancePage;
 import pageObjects.HomePage;
+import testBase.BaseClass;
 
-public class TSC003_Health_Insurance_Menu {
+public class TSC003_Health_Insurance_Menu extends BaseClass {
 	
-	WebDriver driver;
-	HealthInsurancePage Health= new HealthInsurancePage(driver);
-	HomePage Home= new HomePage(driver);
+	
+	static HealthInsurancePage Health;
+	static HomePage Home;
+	
 	@Test
 	public void Test1() {
+		Home= new HomePage(driver);
+		Health= new HealthInsurancePage(driver);
+		
 		Home.HoverOnInsuranceProducts();
 		Boolean check=Health.isDropdownPresent();
 		Assert.assertTrue(check);
@@ -28,6 +33,9 @@ public class TSC003_Health_Insurance_Menu {
 	
 	@Test
 	public void Test2() {
+//		Home= new HomePage(driver);
+//		Health= new HealthInsurancePage(driver);
+		
 		Home.HoverOnInsuranceProducts();
 		
 		Home.healthInsuranceClick();
