@@ -5,15 +5,17 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
  
 public class TravelInsurancePage extends BasePage {
-    WebDriver driver;
+   
  
     public TravelInsurancePage(WebDriver driver) {
         super(driver);
@@ -66,15 +68,37 @@ public class TravelInsurancePage extends BasePage {
     WebElement ViewPlansButton;
     
     
+    public static boolean isListPopulated(List<WebElement> elements) {
+        return elements != null && !elements.isEmpty();
+    }
+	
+    public static boolean isDropdownValueSelectable(WebElement ele,String value) {
+		Select select = new Select(ele);
+		List<WebElement> options = select.getOptions();
+
+		for (WebElement option : options) {
+			if (option.getText().equals(value)) {
+				return option.isEnabled(); 
+			}
+		}
+	return false;
+	}
     
     //Action Methods
     
     //one - 1
+    public boolean isInputFieldClickable() {
+    	return isElementClickable(inputBox);
+    }
     public void clickInput() {
     	inputBox.click();
     }
     
+    
     //two - 2
+    public boolean isCountryListPopulated() {
+    	return isListPopulated(Country);
+    }
     public void selectCountry(String country) {
     	
     	for(WebElement ele:Country) {
@@ -89,18 +113,27 @@ public class TravelInsurancePage extends BasePage {
     	}
     }
     
+    
     //three - 3
+    public boolean isStartDateClickable() {
+    	return isElementClickable(startDate);
+    }
     public void clickStartDate() {
     	startDate.click();
     }
     
+    
+    
     //four - 4
+    public boolean isStartDateNextClickable() {
+    	return isElementClickable(clickNextButton);
+    }
     public void selectStartDate(String stdate) {
     	
     	String st[]=stdate.split("/");
-    	String date=st[0];
+    	String date=st[2];
     	String month=st[1];
-    	String year=st[2];
+    	String year=st[0];
     	String startdate=month.substring(0,3).concat(" ").concat(date).concat(", ").concat(year);
     	
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
@@ -122,20 +155,21 @@ public class TravelInsurancePage extends BasePage {
     }
     
     //five - 5
+    public boolean isEndDateClickNextClickable() {
+    	return isElementClickable(clickNextButton);
+    }
     public void selectEndDate(String eddate) {
     	
     	String st[]=eddate.split("/");
-    	String date=st[0];
+    	String date=st[2];
     	String month=st[1];
-    	String year=st[2];
+    	String year=st[0];
     	String Enddate=month.substring(0,3).concat(" ").concat(date).concat(", ").concat(year);
     	
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 		WebDriverWait wait=new WebDriverWait(driver,Duration.ofMillis(1000));
 		
     	while(true) {
-
-
 			try{
 
 				WebElement ele=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label='"+Enddate+"']")));
@@ -149,12 +183,19 @@ public class TravelInsurancePage extends BasePage {
     	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
  
+    
     //six - 6
+    public boolean isContinueButtonClickable() {
+    	return isElementClickable(continueButton);
+    }
     public void clickContinueButton() {
     	continueButton.click();
     }
     
     //seven - 7
+    public boolean isTravellersListPopulated() {
+    	return isListPopulated(selectNumberOfTravellers);
+    }
     public void selectTravellers(String numberOfTravellers) {
     	int i=0;
     	for(WebElement ele:selectNumberOfTravellers) {
@@ -176,6 +217,9 @@ public class TravelInsurancePage extends BasePage {
     }
     
     //eight - 8
+    public boolean isAgeListPopulated() {
+    	return isListPopulated(AgeSelection);
+    }
     public void selectAge(String age) {
     	int i=0;
     	String st=age.concat(" ").concat("years_undefined");
@@ -196,26 +240,41 @@ public class TravelInsurancePage extends BasePage {
     }
     
     //nine - 9
+    public boolean isFirstAgeBoxClickable() {
+    	return isElementClickable(firstAgeBox);
+    }
     public void clickFirstAgeBox() {
     	firstAgeBox.click();
     }
     
     //ten - 10
+    public boolean isSecondAgeBoxClickable() {
+    	return isElementClickable(secondAgeBox);
+    }
     public void clickSecondAgeBox() {
     	secondAgeBox.click();
     }
     
     //eleven - 11
-    public void selectNoValue() {
+    public boolean isSelectNoClickable() {
+    	return isElementClickable(selectNo);
+    }
+    public void selectNoButton() {
     	selectNo.click();
     }
     
     //twelve - 12
+    public boolean isDoneButtonClickable() {
+    	return isElementClickable(DoneButton);
+    }
     public void clickDoneButton() {
     	DoneButton.click();
     }
     
     //thirteen - 13
+    public boolean isViewPlansButtonClickable() {
+    	return isElementClickable(ViewPlansButton);
+    }
     public void clickViewPlans() {
     	ViewPlansButton.click();
     }
