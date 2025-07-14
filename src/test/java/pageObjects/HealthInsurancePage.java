@@ -13,8 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HealthInsurancePage extends BasePage {
-	public WebDriver driver;
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	public WebDriver driver;	
 	Actions act;
 
 
@@ -26,8 +25,8 @@ public class HealthInsurancePage extends BasePage {
 		//locators
 		
 		
-		@FindBy(xpath="//a[text()='Insurance Products ']") 
-		WebElement hovaInsuDropdown;
+//		@FindBy(xpath="//a[text()='Insurance Products ']") 
+//		WebElement hovaInsuDropdown;
 		
 		@FindBy(xpath="/html/body/div[6]/div[2]/div/ul/li[2]/div/div/div[3]") 
 		WebElement insuDropdownContainer; //For Validation
@@ -52,10 +51,10 @@ public class HealthInsurancePage extends BasePage {
 		//---------------------------------------------------------------------
 		
 		
-		public void hoverInsurance(WebDriver driver) {
-			act= new Actions(driver);
-			act.moveToElement(hovaInsuDropdown).perform();
-		}
+//		public void hoverInsurance(WebDriver driver) {
+//			act= new Actions(driver);
+//			act.moveToElement(hovaInsuDropdown).perform();
+//		}
 		
 		public boolean isDropdownPresent() {     //Validation
 			return insuDropdownContainer.isDisplayed();
@@ -64,14 +63,8 @@ public class HealthInsurancePage extends BasePage {
 		
 			
 			
-		public boolean isElementClickable( WebElement element) {   //validation
-			try {
-
-				wait.until(ExpectedConditions.elementToBeClickable(element));
-				return true;
-			} catch (TimeoutException e) {
-				return false;
-			}
+		public boolean isHealthElementClickable( WebElement element) {   //validation
+			return isElementClickable(element);
 		}
 		
 		
