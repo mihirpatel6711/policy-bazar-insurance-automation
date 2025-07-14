@@ -1,4 +1,6 @@
 package pageObjects;
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +15,7 @@ public class BasePage {
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
 	public boolean isElementClickable(WebElement element) {

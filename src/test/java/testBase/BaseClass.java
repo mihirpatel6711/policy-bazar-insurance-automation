@@ -18,7 +18,9 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import java.io.FileReader;
 import java.io.IOException;
@@ -134,10 +136,10 @@ public class BaseClass {
 		
 		
 		
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-		driver.get(p.getProperty("appurl"));
+		//driver.get(p.getProperty("appurl"));
 		driver.manage().window().maximize();
 			
 				
@@ -147,6 +149,21 @@ public class BaseClass {
 	@AfterClass
 	public void tearDown(){
 		driver.quit();
+		
+	}
+	
+	@BeforeMethod
+	public void start() {
+		driver.navigate().to(p.getProperty("appurl"));
+	}
+	
+	@AfterMethod
+	public void restart() {
+		driver.manage().deleteAllCookies();
+		driver.navigate().refresh();
+		
+		
+		
 		
 	}
 	

@@ -17,7 +17,7 @@ public class DataProviders {
 		ExcelUtility xlutil = new ExcelUtility (path);
 		
 		int totalrows = xlutil.getRowCount("Sheet1");
-		int totalcols = xlutil.getCellCount(path, totalrows);
+		int totalcols = xlutil.getCellCount("Sheet1", totalrows);
 		
 		String travelInsuranceData[][] = new String [totalrows][totalcols];
 		
@@ -40,8 +40,8 @@ public class DataProviders {
 		ExcelUtility xlutil = new ExcelUtility (path);
 		
 		int totalrows = xlutil.getRowCount("Sheet1");
-		int totalcols = xlutil.getCellCount(path, totalrows);
-		
+		int totalcols = xlutil.getCellCount("Sheet1", totalrows);
+	
 		String carInsuranceData[][] = new String [totalrows][totalcols];
 		
 		for (int i=1;i<= totalrows;i++) {
