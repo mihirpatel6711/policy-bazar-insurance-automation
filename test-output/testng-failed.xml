@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="utilities.ExtentReportManager"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="chrometest(failed)">
+    <parameter name="os" value="Windows"/>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="testCases.TSC001_Student_Travel_Insurance">
+        <methods>
+          <include name="Execute" invocation-numbers="3"/>
+          <include name="tearDown"/>
+          <include name="restart"/>
+          <include name="start"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- testCases.TSC001_Student_Travel_Insurance -->
+    </classes>
+  </test> <!-- chrometest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
