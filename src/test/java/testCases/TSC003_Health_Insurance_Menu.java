@@ -29,7 +29,7 @@ public class TSC003_Health_Insurance_Menu extends BaseClass {
 
 	@Test
 	public void Test1() {
-		logger.info("*** Initiated: Travel Insurance Page ***");
+		logger.info("*** Initiated: Health Insurance Page ***");
 		logger.info("***TestScript-1 started***");
 		
 		// Initialize page object instances with WebDriver
