@@ -379,3 +379,103 @@
 2025-07-15 12:36:07 INFO  TSC003_Health_Insurance_Menu:88 - Verified: Health dropdown is present when hovered
 2025-07-15 12:36:07 INFO  TSC003_Health_Insurance_Menu:94 - Verified: The Menu Item in Health Insurance dropdown is clickable
 2025-07-15 12:36:07 INFO  TSC003_Health_Insurance_Menu:100 - Verified: The link redirects correctly.
+2025-07-15 12:44:04 WARN  TestNGContentHandler:133 - It is strongly recommended to add "<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >" at the top of the suite file [C:\Users\2406711\eclipse-workspace\policy-bazar-insurance-automation\testng.xml] otherwise TestNG may fail or not work as expected.
+2025-07-15 12:44:04 INFO  Utils:112 - [TestNG] Running:
+  C:\Users\2406711\eclipse-workspace\policy-bazar-insurance-automation\testng.xml
+
+2025-07-15 12:44:13 INFO  TSC002_Car_Insurance_Quote:47 - Action: Car Insurance option clicked on Home Page
+2025-07-15 12:44:14 INFO  TSC002_Car_Insurance_Quote:51 - *** Initiated: Car Insurance Page ***
+2025-07-15 12:44:15 INFO  TSC002_Car_Insurance_Quote:54 - Action: Start button clicked
+2025-07-15 12:44:16 INFO  TSC002_Car_Insurance_Quote:60 - Verified: City list populated
+2025-07-15 12:44:16 INFO  TSC002_Car_Insurance_Quote:65 - Verified: City 'Gurugram' is clickable
+2025-07-15 12:44:16 INFO  TSC002_Car_Insurance_Quote:69 - Action: City 'Gurugram' selected
+2025-07-15 12:44:16 INFO  TSC002_Car_Insurance_Quote:76 - Verified: Brand list populated
+2025-07-15 12:44:16 INFO  TSC002_Car_Insurance_Quote:81 - Verified: Brand 'MARUTI' is clickable
+2025-07-15 12:44:16 INFO  TSC002_Car_Insurance_Quote:85 - Action: Brand 'MARUTI' selected
+2025-07-15 12:44:17 INFO  TSC002_Car_Insurance_Quote:92 - Verified: Model list populated
+2025-07-15 12:44:17 INFO  TSC002_Car_Insurance_Quote:97 - Verified: Model 'DZIRE' is clickable
+2025-07-15 12:44:17 INFO  TSC002_Car_Insurance_Quote:101 - Action: Model 'DZIRE' selected
+2025-07-15 12:44:17 INFO  TSC002_Car_Insurance_Quote:107 - Verified: Fuel type list populated
+2025-07-15 12:44:17 INFO  TSC002_Car_Insurance_Quote:112 - Verified: Fuel type 'Petrol' is clickable
+2025-07-15 12:44:17 INFO  TSC002_Car_Insurance_Quote:116 - Action: Fuel type 'Petrol' selected
+2025-07-15 12:44:18 INFO  TSC002_Car_Insurance_Quote:122 - Verified: Variant list populated
+2025-07-15 12:44:18 INFO  TSC002_Car_Insurance_Quote:127 - Verified: Variant 'LXI (1197 cc)' is clickable
+2025-07-15 12:44:18 INFO  TSC002_Car_Insurance_Quote:131 - Action: Variant 'LXI (1197 cc)' selected
+2025-07-15 12:44:19 INFO  TSC002_Car_Insurance_Quote:137 - Action: Name 'Rhea' entered
+2025-07-15 12:44:19 INFO  TSC002_Car_Insurance_Quote:141 - Action: Mobile number '12345' entered
+2025-07-15 12:44:19 INFO  TSC002_Car_Insurance_Quote:146 - Captured Error Message: Enter a valid mobile number
+2025-07-15 12:44:23 INFO  TSC002_Car_Insurance_Quote:47 - Action: Car Insurance option clicked on Home Page
+2025-07-15 12:44:24 INFO  TSC002_Car_Insurance_Quote:51 - *** Initiated: Car Insurance Page ***
+2025-07-15 12:44:24 INFO  TSC002_Car_Insurance_Quote:54 - Action: Start button clicked
+2025-07-15 12:44:25 INFO  TSC002_Car_Insurance_Quote:60 - Verified: City list populated
+2025-07-15 12:44:25 INFO  TSC002_Car_Insurance_Quote:65 - Verified: City 'Noida' is clickable
+2025-07-15 12:44:25 INFO  TSC002_Car_Insurance_Quote:69 - Action: City 'Noida' selected
+2025-07-15 12:44:25 INFO  TSC002_Car_Insurance_Quote:76 - Verified: Brand list populated
+2025-07-15 12:44:25 INFO  TSC002_Car_Insurance_Quote:81 - Verified: Brand 'TATA' is clickable
+2025-07-15 12:44:26 INFO  TSC002_Car_Insurance_Quote:85 - Action: Brand 'TATA' selected
+2025-07-15 12:44:26 INFO  TSC002_Car_Insurance_Quote:92 - Verified: Model list populated
+2025-07-15 12:44:26 INFO  TSC002_Car_Insurance_Quote:97 - Verified: Model 'Punch' is clickable
+2025-07-15 12:44:26 INFO  TSC002_Car_Insurance_Quote:101 - Action: Model 'Punch' selected
+2025-07-15 12:44:26 INFO  TSC002_Car_Insurance_Quote:107 - Verified: Fuel type list populated
+2025-07-15 12:44:26 INFO  TSC002_Car_Insurance_Quote:112 - Verified: Fuel type 'CNG' is clickable
+2025-07-15 12:44:27 INFO  TSC002_Car_Insurance_Quote:116 - Action: Fuel type 'CNG' selected
+2025-07-15 12:44:27 INFO  TSC002_Car_Insurance_Quote:122 - Verified: Variant list populated
+2025-07-15 12:44:27 INFO  TSC002_Car_Insurance_Quote:127 - Verified: Variant 'Adventure Rhythm iCNG (1199 cc)' is clickable
+2025-07-15 12:44:27 INFO  TSC002_Car_Insurance_Quote:131 - Action: Variant 'Adventure Rhythm iCNG (1199 cc)' selected
+2025-07-15 12:44:28 INFO  TSC002_Car_Insurance_Quote:137 - Action: Name 'Priya' entered
+2025-07-15 12:44:28 INFO  TSC002_Car_Insurance_Quote:141 - Action: Mobile number '12345678' entered
+2025-07-15 12:44:28 INFO  TSC002_Car_Insurance_Quote:146 - Captured Error Message: Enter a valid mobile number
+2025-07-15 12:44:32 INFO  TSC002_Car_Insurance_Quote:47 - Action: Car Insurance option clicked on Home Page
+2025-07-15 12:44:33 INFO  TSC002_Car_Insurance_Quote:51 - *** Initiated: Car Insurance Page ***
+2025-07-15 12:44:33 INFO  TSC002_Car_Insurance_Quote:54 - Action: Start button clicked
+2025-07-15 12:44:33 INFO  TSC002_Car_Insurance_Quote:60 - Verified: City list populated
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:65 - Verified: City 'Hyderabad' is clickable
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:69 - Action: City 'Hyderabad' selected
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:76 - Verified: Brand list populated
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:81 - Verified: Brand 'Maruti' is clickable
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:85 - Action: Brand 'Maruti' selected
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:92 - Verified: Model list populated
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:97 - Verified: Model 'Brezza' is clickable
+2025-07-15 12:44:34 INFO  TSC002_Car_Insurance_Quote:101 - Action: Model 'Brezza' selected
+2025-07-15 12:44:35 INFO  TSC002_Car_Insurance_Quote:107 - Verified: Fuel type list populated
+2025-07-15 12:44:35 INFO  TSC002_Car_Insurance_Quote:112 - Verified: Fuel type 'Petrol' is clickable
+2025-07-15 12:44:35 INFO  TSC002_Car_Insurance_Quote:116 - Action: Fuel type 'Petrol' selected
+2025-07-15 12:44:35 INFO  TSC002_Car_Insurance_Quote:122 - Verified: Variant list populated
+2025-07-15 12:44:35 INFO  TSC002_Car_Insurance_Quote:127 - Verified: Variant 'LXi (1462 cc)' is clickable
+2025-07-15 12:44:36 INFO  TSC002_Car_Insurance_Quote:131 - Action: Variant 'LXi (1462 cc)' selected
+2025-07-15 12:44:36 INFO  TSC002_Car_Insurance_Quote:137 - Action: Name 'Shravya' entered
+2025-07-15 12:44:36 INFO  TSC002_Car_Insurance_Quote:141 - Action: Mobile number '98456' entered
+2025-07-15 12:44:36 INFO  TSC002_Car_Insurance_Quote:146 - Captured Error Message: Enter a valid mobile number
+2025-07-15 12:44:40 INFO  TSC002_Car_Insurance_Quote:47 - Action: Car Insurance option clicked on Home Page
+2025-07-15 12:44:41 INFO  TSC002_Car_Insurance_Quote:51 - *** Initiated: Car Insurance Page ***
+2025-07-15 12:44:42 INFO  TSC002_Car_Insurance_Quote:54 - Action: Start button clicked
+2025-07-15 12:44:42 INFO  TSC002_Car_Insurance_Quote:60 - Verified: City list populated
+2025-07-15 12:44:42 INFO  TSC002_Car_Insurance_Quote:65 - Verified: City 'Mumbai' is clickable
+2025-07-15 12:44:42 INFO  TSC002_Car_Insurance_Quote:69 - Action: City 'Mumbai' selected
+2025-07-15 12:44:43 INFO  TSC002_Car_Insurance_Quote:76 - Verified: Brand list populated
+2025-07-15 12:44:43 INFO  TSC002_Car_Insurance_Quote:81 - Verified: Brand 'HYUNDAI' is clickable
+2025-07-15 12:44:43 INFO  TSC002_Car_Insurance_Quote:85 - Action: Brand 'HYUNDAI' selected
+2025-07-15 12:44:43 INFO  TSC002_Car_Insurance_Quote:92 - Verified: Model list populated
+2025-07-15 12:44:43 INFO  TSC002_Car_Insurance_Quote:97 - Verified: Model 'i 20' is clickable
+2025-07-15 12:44:43 INFO  TSC002_Car_Insurance_Quote:101 - Action: Model 'i 20' selected
+2025-07-15 12:44:44 INFO  TSC002_Car_Insurance_Quote:107 - Verified: Fuel type list populated
+2025-07-15 12:44:44 INFO  TSC002_Car_Insurance_Quote:112 - Verified: Fuel type 'External CNG Kit' is clickable
+2025-07-15 12:44:44 INFO  TSC002_Car_Insurance_Quote:116 - Action: Fuel type 'External CNG Kit' selected
+2025-07-15 12:44:45 INFO  TSC002_Car_Insurance_Quote:122 - Verified: Variant list populated
+2025-07-15 12:44:45 INFO  TSC002_Car_Insurance_Quote:127 - Verified: Variant 'Sportz 1.2 IVT (1197 cc)' is clickable
+2025-07-15 12:44:45 INFO  TSC002_Car_Insurance_Quote:131 - Action: Variant 'Sportz 1.2 IVT (1197 cc)' selected
+2025-07-15 12:44:45 INFO  TSC002_Car_Insurance_Quote:137 - Action: Name 'shreelakshmi' entered
+2025-07-15 12:44:45 INFO  TSC002_Car_Insurance_Quote:141 - Action: Mobile number '908675' entered
+2025-07-15 12:44:45 INFO  TSC002_Car_Insurance_Quote:146 - Captured Error Message: Enter a valid mobile number
+2025-07-15 12:44:54 INFO  TSC003_Health_Insurance_Menu:32 - *** Initiated: Health Insurance Page ***
+2025-07-15 12:44:54 INFO  TSC003_Health_Insurance_Menu:33 - ***TestScript-1 started***
+2025-07-15 12:44:54 INFO  TSC003_Health_Insurance_Menu:41 - Action: Hovered on Insurance Dropdown
+2025-07-15 12:44:54 INFO  TSC003_Health_Insurance_Menu:46 - Verified: Dropdown is present when hovered
+2025-07-15 12:44:54 INFO  TSC003_Health_Insurance_Menu:53 - Verified: The Health Insurance is clickable
+2025-07-15 12:44:57 INFO  TSC003_Health_Insurance_Menu:69 - ***TestScript-2 started***
+2025-07-15 12:44:57 INFO  TSC003_Health_Insurance_Menu:73 - Action: Hovered on Insurance Dropdown
+2025-07-15 12:44:58 INFO  TSC003_Health_Insurance_Menu:77 - Action: Health Insurance is clicked
+2025-07-15 12:44:59 INFO  TSC003_Health_Insurance_Menu:83 - Action: Hovered on Health Insurance Dropdown
+2025-07-15 12:44:59 INFO  TSC003_Health_Insurance_Menu:88 - Verified: Health dropdown is present when hovered
+2025-07-15 12:44:59 INFO  TSC003_Health_Insurance_Menu:94 - Verified: The Menu Item in Health Insurance dropdown is clickable
+2025-07-15 12:44:59 INFO  TSC003_Health_Insurance_Menu:100 - Verified: The link redirects correctly.
