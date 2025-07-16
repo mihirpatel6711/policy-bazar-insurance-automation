@@ -24,6 +24,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.io.File;
@@ -44,7 +45,7 @@ public class BaseClass {
 		
 		
 		
-		
+		try {
 		
 		// Loading properties file from the path 
 		FileReader file = new FileReader(".//src//test//resources//config.properties");
@@ -58,6 +59,7 @@ public class BaseClass {
 		
 		if(p.getProperty("execution_env").equalsIgnoreCase("remote"))
 		{
+			System.out.println("Executing Remotely");
 			DesiredCapabilities capabilities=new DesiredCapabilities();
 			
 			//os
@@ -77,30 +79,50 @@ public class BaseClass {
 			
 			//browser
 			// launching browser based on condition 
-			switch(br.toLowerCase()) {
 			
-			case "chrome":
-				ChromeOptions chromeOptions = new ChromeOptions();
-	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-	            chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-	            chromeOptions.setExperimentalOption("useAutomationExtension", false);
-	            chromeOptions.addArguments("--start-maximized");
-	            driver = new ChromeDriver(chromeOptions);
-	            break;
-			case "edge" : 
-				EdgeOptions edgeOptions = new EdgeOptions();
-	            edgeOptions.addArguments("--disable-blink-features=AutomationControlled");
-	            edgeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-	            edgeOptions.setExperimentalOption("useAutomationExtension", false);
-	            edgeOptions.addArguments("--start-maximized");
-	            driver = new EdgeDriver(edgeOptions);
-	            break;
-			default : System.out.println("No matching browser....");
-			return ;	
-			
+			switch(br.toLowerCase())
+			{
+			case "chrome": capabilities.setBrowserName("chrome"); break;
+			case "edge": capabilities.setBrowserName("MicrosoftEdge"); break;
+			default: System.out.println("No matching browser"); return;
 			}
+//			switch(br.toLowerCase()) {
+//			
+//			case "chrome":
+//				capabilities.setBrowserName(br.toLowerCase());
+//				ChromeOptions chromeOptions = new ChromeOptions();
+//	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+//	            chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+//	            chromeOptions.setExperimentalOption("useAutomationExtension", false);
+//	            chromeOptions.addArguments("--start-maximized");
+//	            driver = new ChromeDriver(chromeOptions);
+//	            break;
+//			case "edge" : 
+//				EdgeOptions edgeOptions = new EdgeOptions();
+//	            edgeOptions.addArguments("--disable-blink-features=AutomationControlled");
+//	            edgeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+//	            edgeOptions.setExperimentalOption("useAutomationExtension", false);
+//	            edgeOptions.addArguments("--start-maximized");
+//	            driver = new EdgeDriver(edgeOptions);
+//	            break;
+//			default : System.out.println("No matching browser....");
+//			return ;	
+//			
+//			}
 			
-			driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+			//driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+			// 1. Define the URL string
+			String seleniumHubUrlString = "http://192.168.1.38:4444/wd/hub";
+
+			// 2. Create a URI object for robust parsing
+			// This is often preferred for creating the resource identifier first
+			URI uri = new URI(seleniumHubUrlString);
+
+			// 3. Convert the URI object to a URL object
+			// The toURL() method of URI can throw MalformedURLException
+			URL seleniumHubUrl = uri.toURL();
+
+			driver = new RemoteWebDriver(seleniumHubUrl, capabilities);
 		}
 		
 		if(p.getProperty("execution_env").equalsIgnoreCase("local"))
@@ -145,6 +167,11 @@ public class BaseClass {
 				
 		
 	}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	@AfterClass
 	public void tearDown(){
