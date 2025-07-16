@@ -32,7 +32,7 @@ public class TSC003_Health_Insurance_Menu extends BaseClass {
 	 */
 
 	@Test
-	public void Test1() {
+	public void testHealthInsuranceDropdownAndClickability() {
 		
 		extentTest = ExtentReportManager.extent.createTest("Health Insurance Test Case - 1");
 		extentTest.assignCategory("Health Insurance");
@@ -101,7 +101,7 @@ public class TSC003_Health_Insurance_Menu extends BaseClass {
 	 */
 
 	@Test
-	public void Test2() {
+	public void testHealthInsuranceMenuClickAndRedirect() {
 		
 		extentTest = ExtentReportManager.extent.createTest("Health Insurance Test Case - 2");
 		extentTest.assignCategory("Health Insurance");

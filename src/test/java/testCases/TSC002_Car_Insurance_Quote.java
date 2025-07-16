@@ -45,7 +45,7 @@ public class TSC002_Car_Insurance_Quote extends BaseClass{
 		  */
 	 
 	    @Test(dataProvider = "CarInsurance", dataProviderClass=DataProviders.class)
-	    public void testCarInsuranceSelection(String city, String carBrand, String carModel, String carFuelType, String carVariant, String name, String mobileNumber  ) throws InterruptedException {//For new brand car-->"click here"
+	    public void testCarInsuranceInvalidContactDetailsErrorMessage(String city, String carBrand, String carModel, String carFuelType, String carVariant, String name, String mobileNumber  ) throws InterruptedException {//For new brand car-->"click here"
 	    	
 	    	
 

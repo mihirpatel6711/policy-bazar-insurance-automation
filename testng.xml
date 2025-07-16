@@ -5,16 +5,17 @@
 		<listener class-name="utilities.ExtentReportManager"/>
 	</listeners> 
 	
-  <test thread-count="5" name="chrometest">
+  <test  name="chrometest">
    	<parameter name="os" value="Windows" />
   	<parameter name="browser"  value="chrome"/>  
     <classes>
-     <!--  
+       
+     <class name="testCases.TSC001_Student_Travel_Insurance"/>  
      <class name="testCases.TSC002_Car_Insurance_Quote"/>
       <class name="testCases.TSC003_Health_Insurance_Menu"/> 
      
-    -->
-    <class name="testCases.TSC001_Student_Travel_Insurance"/>  
+   
+    
      
       
     </classes>

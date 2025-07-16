@@ -409,6 +409,15 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 		    
 		    logger.info("*** Completed: View Plans Results ***");	
 		    extentTest.log(Status.INFO, "Action: successfully completed the execution and results are printed");
+		    
+		 // on pass take screenshot
+	        try {
+	        	String captureScreen = captureScreen("Test Car Insurance");
+	        	extentTest.addScreenCaptureFromPath(captureScreen);
+	        }
+	        catch(Exception e) {
+	        	e.printStackTrace();
+	        }
 		    	    
 			} 
 			
