@@ -85,7 +85,7 @@ public class ViewPlansPage extends BasePage{
     	WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));
     	WebElement ele=wait.until(ExpectedConditions.elementToBeClickable(selectFirstTraveller));
     	ele.click();
-    	System.out.println("Traveller one checked");
+//    	System.out.println("Traveller one checked");
     }
     
     
@@ -97,7 +97,7 @@ public class ViewPlansPage extends BasePage{
     	WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));
     	WebElement ele=wait.until(ExpectedConditions.elementToBeClickable(selectSecondTraveller));
     	ele.click();
-    	System.out.println("Traveller two checked");
+//    	System.out.println("Traveller two checked");
     } 
     
     

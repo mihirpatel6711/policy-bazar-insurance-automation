@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-15T23:54:48 IST" name="Suite" finished-at="2025-07-15T23:55:39 IST" duration-ms="51061">
+  <suite started-at="2025-07-16T10:32:02 IST" name="Suite" finished-at="2025-07-16T10:34:52 IST" duration-ms="170126">
     <groups>
     </groups>
-    <test started-at="2025-07-15T23:54:48 IST" name="chrometest" finished-at="2025-07-15T23:55:39 IST" duration-ms="51061">
-      <class name="testCases.TSC003_Health_Insurance_Menu">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:27 IST" name="setup" finished-at="2025-07-15T23:55:29 IST" duration-ms="2159" status="PASS">
+    <test started-at="2025-07-16T10:32:02 IST" name="chrometest" finished-at="2025-07-16T10:34:52 IST" duration-ms="170126">
+      <class name="testCases.TSC001_Student_Travel_Insurance">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:32:02 IST" name="setup" finished-at="2025-07-16T10:32:06 IST" duration-ms="3621" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,253 +23,207 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:29 IST" name="start" finished-at="2025-07-15T23:55:31 IST" duration-ms="1777" status="PASS">
+        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:32:07 IST" name="start" finished-at="2025-07-16T10:32:15 IST" duration-ms="8031" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method signature="Test1()[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:31 IST" name="Test1" finished-at="2025-07-15T23:55:31 IST" duration-ms="661" status="PASS">
+        <test-method signature="testStudentTravelInsurancePlans(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:32:15 IST" name="testStudentTravelInsurancePlans" data-provider="TravelInsurance" finished-at="2025-07-16T10:32:52 IST" duration-ms="36583" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Germany]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2025/July/21]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2025/August/25]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[21]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[30 Days]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test1 -->
-        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:31 IST" name="restart" finished-at="2025-07-15T23:55:32 IST" duration-ms="716" status="PASS">
+        </test-method> <!-- testStudentTravelInsurancePlans -->
+        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:32:52 IST" name="restart" finished-at="2025-07-16T10:32:53 IST" duration-ms="1430" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- restart -->
-        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:32 IST" name="start" finished-at="2025-07-15T23:55:33 IST" duration-ms="554" status="PASS">
+        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:32:53 IST" name="start" finished-at="2025-07-16T10:32:54 IST" duration-ms="877" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method signature="Test2()[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:33 IST" name="Test2" finished-at="2025-07-15T23:55:35 IST" duration-ms="2247" status="PASS">
+        <test-method signature="testStudentTravelInsurancePlans(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:32:54 IST" name="testStudentTravelInsurancePlans" data-provider="TravelInsurance" finished-at="2025-07-16T10:33:28 IST" duration-ms="34041" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[France]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2025/August/15]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2025/October/1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[21]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[60 Days]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test2 -->
-        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:35 IST" name="restart" finished-at="2025-07-15T23:55:36 IST" duration-ms="1369" status="PASS">
+        </test-method> <!-- testStudentTravelInsurancePlans -->
+        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:33:28 IST" name="restart" finished-at="2025-07-16T10:33:30 IST" duration-ms="1966" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- restart -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TSC003_Health_Insurance_Menu@3da30852]" started-at="2025-07-15T23:55:36 IST" name="tearDown" finished-at="2025-07-15T23:55:39 IST" duration-ms="2679" status="PASS">
+        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:33:30 IST" name="start" finished-at="2025-07-16T10:33:32 IST" duration-ms="1248" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method signature="testStudentTravelInsurancePlans(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:33:32 IST" name="testStudentTravelInsurancePlans" data-provider="TravelInsurance" finished-at="2025-07-16T10:34:07 IST" duration-ms="35851" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Italy]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2025/September/20]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2025/November/20]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[21]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[90 Days]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testStudentTravelInsurancePlans -->
+        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:34:07 IST" name="restart" finished-at="2025-07-16T10:34:09 IST" duration-ms="1530" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restart -->
+        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:34:09 IST" name="start" finished-at="2025-07-16T10:34:10 IST" duration-ms="763" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method signature="testStudentTravelInsurancePlans(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:34:10 IST" name="testStudentTravelInsurancePlans" data-provider="TravelInsurance" finished-at="2025-07-16T10:34:46 IST" duration-ms="36101" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Switzerland]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2025/November/20]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2026/January/4]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[21]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[60 Days]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testStudentTravelInsurancePlans -->
+        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:34:46 IST" name="restart" finished-at="2025-07-16T10:34:47 IST" duration-ms="1636" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- restart -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TSC001_Student_Travel_Insurance@6a55299e]" started-at="2025-07-16T10:34:47 IST" name="tearDown" finished-at="2025-07-16T10:34:52 IST" duration-ms="4750" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.TSC003_Health_Insurance_Menu -->
-      <class name="testCases.TSC002_Car_Insurance_Quote">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:54:48 IST" name="setup" finished-at="2025-07-15T23:54:52 IST" duration-ms="3870" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Windows]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:54:53 IST" name="start" finished-at="2025-07-15T23:54:55 IST" duration-ms="1872" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- start -->
-        <test-method signature="testCarInsuranceSelection(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:54:55 IST" name="testCarInsuranceSelection" data-provider="CarInsurance" finished-at="2025-07-15T23:55:01 IST" duration-ms="5800" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Gurugram]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[MARUTI]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[DZIRE]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Petrol]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[LXI (1197 cc)]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Rhea]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12345]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCarInsuranceSelection -->
-        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:01 IST" name="restart" finished-at="2025-07-15T23:55:01 IST" duration-ms="532" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restart -->
-        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:01 IST" name="start" finished-at="2025-07-15T23:55:02 IST" duration-ms="697" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- start -->
-        <test-method signature="testCarInsuranceSelection(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:02 IST" name="testCarInsuranceSelection" data-provider="CarInsurance" finished-at="2025-07-15T23:55:07 IST" duration-ms="5278" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Noida]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[TATA]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Punch]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[CNG]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Adventure Rhythm iCNG (1199 cc)]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Priya]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[12345678]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCarInsuranceSelection -->
-        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:07 IST" name="restart" finished-at="2025-07-15T23:55:08 IST" duration-ms="517" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restart -->
-        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:08 IST" name="start" finished-at="2025-07-15T23:55:09 IST" duration-ms="1564" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- start -->
-        <test-method signature="testCarInsuranceSelection(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:09 IST" name="testCarInsuranceSelection" data-provider="CarInsurance" finished-at="2025-07-15T23:55:15 IST" duration-ms="5975" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Hyderabad]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Maruti]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Brezza]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Petrol]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[LXi (1462 cc)]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Shravya]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[98456]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCarInsuranceSelection -->
-        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:15 IST" name="restart" finished-at="2025-07-15T23:55:18 IST" duration-ms="2386" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restart -->
-        <test-method is-config="true" signature="start()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:18 IST" name="start" finished-at="2025-07-15T23:55:18 IST" duration-ms="510" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- start -->
-        <test-method signature="testCarInsuranceSelection(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:18 IST" name="testCarInsuranceSelection" data-provider="CarInsurance" finished-at="2025-07-15T23:55:24 IST" duration-ms="5385" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Mumbai]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[HYUNDAI]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[i 20]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[External CNG Kit]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Sportz 1.2 IVT (1197 cc)]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[shreelakshmi]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[908675]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCarInsuranceSelection -->
-        <test-method is-config="true" signature="restart()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:24 IST" name="restart" finished-at="2025-07-15T23:55:24 IST" duration-ms="507" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restart -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TSC002_Car_Insurance_Quote@51acdf2e]" started-at="2025-07-15T23:55:24 IST" name="tearDown" finished-at="2025-07-15T23:55:27 IST" duration-ms="2692" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- testCases.TSC002_Car_Insurance_Quote -->
+      </class> <!-- testCases.TSC001_Student_Travel_Insurance -->
     </test> <!-- chrometest -->
   </suite> <!-- Suite -->
 </testng-results>

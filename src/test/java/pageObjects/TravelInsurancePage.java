@@ -85,7 +85,7 @@ public class TravelInsurancePage extends BasePage {
 	}
     
     //Action Methods
-    
+        
     //one - 1
     public boolean isInputFieldClickable() {
     	return isElementClickable(inputBox);
@@ -201,13 +201,11 @@ public class TravelInsurancePage extends BasePage {
     	for(WebElement ele:selectNumberOfTravellers) {
     		if(ele.getAttribute("value").equals(numberOfTravellers)) {
     			try {
-    				System.out.println("try block executed");
     				selectNumberOfTravellersList.get(i).click();
         			break;
     			}
     			catch(Exception e) {
     				selectNumberOfTravellersList.get(i).click();
-    				System.out.println("catch block executed");
         			break;
     			}	
     		}

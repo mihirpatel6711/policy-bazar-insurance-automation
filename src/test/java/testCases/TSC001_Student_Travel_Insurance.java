@@ -1,6 +1,7 @@
 package testCases;
 
 import org.testng.Assert;
+
 import org.testng.annotations.Test;
 
 import pageObjects.HomePage;
@@ -9,183 +10,405 @@ import pageObjects.ViewPlansPage;
 import testBase.BaseClass;
 import utilities.DataProviders;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import utilities.ExtentReportManager;
+
+
+/**
+ * Test Case ID: TSC001_Student_Travel_Insurance
+ * Purpose: Validate the workflow of selecting student travel insurance options.
+ * Data Driven: Uses test data from DataProviders for multiple combinations of user inputs.
+ */
+
 public class TSC001_Student_Travel_Insurance extends BaseClass {
+	
+	// Page object for the Home Page where travel insurance option is selected
+	HomePage homepage;
+	// Page objects for the travel Insurance workflow containing form interactions
+	TravelInsurancePage travelInsurance;
+	ViewPlansPage viewplans;
+	
+	ExtentTest extentTest;
+		
+	/**
+	  * Test Method: testStudentTravelInsurancePlans
+	  * Description: Executes a complete flow of selecting country, startDate, endDate, numberOfTravellers, age1, age2, travelDuration , plan type and price
+	  * and view top three plans based on above filters
+	  */
+	
 	@Test(dataProvider="TravelInsurance", dataProviderClass=DataProviders.class)
-	public void Execute(String country,String startDate,String endDate, String numberOfTravellers, String age1,String age2, String travelDuration) throws InterruptedException {
+	public void testStudentTravelInsurancePlans(String country,String startDate,String endDate, String numberOfTravellers, String age1,String age2, String travelDuration) throws InterruptedException {
+		homepage = new HomePage(driver);// Initialize HomePage object
+		travelInsurance = new TravelInsurancePage(driver); //Initialize TravelInsurancePage object
+		viewplans = new ViewPlansPage(driver); //Initialize ViewPlansPage object
 		
-		TravelInsurancePage tl=new TravelInsurancePage(driver);
-		ViewPlansPage vp=new ViewPlansPage(driver);
-		HomePage hp=new HomePage(driver);
+		extentTest = ExtentReportManager.extent.createTest("Travel Insurance Test - " + country + ", " + startDate+ ", " + endDate + ", " + numberOfTravellers + ", " + age1 + ", " + age2 + ", " + travelDuration );
+		extentTest.assignCategory("Student Travel Insurance");
 		
-		try {
-			//HomePage
-		    hp.travelInsurance();
-		    Thread.sleep(1000);
-		        
+		try {    
 		    //Travel Insurance
-			
 			logger.info("*** Initiated: Travel Insurance Page ***");
+			extentTest.log(Status.INFO, "*** Initiated: Travel Insurance Page ***");
+			
+			
+			//Click on Travel Insurance
+		    homepage.travelInsurance();
+			logger.info("Action: Travel Insurance option clicked on Home Page");
+	    	extentTest.log(Status.INFO, "Action: Travel Insurance option clicked on Home Page");
+	    	Thread.sleep(1000);
 		    
 			//Click on Input Field 
-		    Assert.assertTrue(tl.isInputFieldClickable(), "Input Box is not clickable");
+	    	try {
+		    Assert.assertTrue(travelInsurance.isInputFieldClickable(), "Input Box is not clickable");
 		    logger.info("Verified: Input box is clickable");
-		    tl.clickInput();
+		    extentTest.log(Status.PASS, "Verified: Input box is clickable");
+		    travelInsurance.clickInput();
 		    logger.info("Action: Input field clicked");
+		    extentTest.log(Status.INFO, "Action: Input field clicked");
+	    	}
+	    	catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+	    	
 		    Thread.sleep(1000);
+		    
+		    // ======================== Country Selection ========================
 		    
 		    //Country dropdown is populated
-		    Assert.assertTrue(tl.isCountryListPopulated(), "Country list is not clickable or not populated");
-		    logger.info("Verified: Country list is clickable and populated");
-		    tl.selectCountry(country);
-		    logger.info("Action: Country selected – " + country);
-		    Thread.sleep(1000);
+		    try {
+		    	Assert.assertTrue(travelInsurance.isCountryListPopulated(), "Country list is not clickable or not populated");
+			    logger.info("Verified: Country list is clickable and populated");
+			    extentTest.log(Status.PASS, "Verified: Country list is clickable and populated");
+			    travelInsurance.selectCountry(country);
+			    logger.info("Action: Country selected – " + country);
+			    extentTest.log(Status.INFO, "Action: country selected - " + country);
+			    Thread.sleep(1000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
 
-		    //start Date field is clickable
-		    Assert.assertTrue(tl.isStartDateClickable(), "Start Date field is not clickable");
-		    logger.info("Verified: Start date field is clickable");
-		    tl.clickStartDate();
-		    logger.info("Action: Start date field clicked");
-		    Thread.sleep(3000);
-
-		    //select Start Date
-		    tl.selectStartDate(startDate);
-		    logger.info("Action: Start date selected");
-		    Thread.sleep(1000);
+		    // ======================== Start Date Selection ========================
 		    
+		    //start Date field is clickable
+		    try {
+		    	Assert.assertTrue(travelInsurance.isStartDateClickable(), "Start Date field is not clickable");
+			    logger.info("Verified: Start date field is clickable");
+			    extentTest.log(Status.PASS, "Verified: Start date field is clickable");
+			    travelInsurance.clickStartDate();
+			    logger.info("Action: Start date field clicked");
+			    extentTest.log(Status.INFO, "Action: Start date field clicked");
+			    Thread.sleep(3000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		   
+		    //select Start Date
+		    	travelInsurance.selectStartDate(startDate);
+			    logger.info("Action: Start date selected");
+			    extentTest.log(Status.INFO, "Action: start date selected - "+ startDate);
+			    Thread.sleep(1000);
+		    
+		    
+		    
+		    // ======================== End Date Selection ========================
+
+            
 		    //select End Date
-		    tl.selectEndDate(endDate);
-		    logger.info("Action: End date selected");
-		    Thread.sleep(1000);
-		  
+		    	travelInsurance.selectEndDate(endDate);
+				logger.info("Action: End date selected");
+				extentTest.log(Status.INFO, "Action: end date selected - "+ endDate);
+				Thread.sleep(1000);
+		    
+		    
+		    
 		    //click continue Button
-		    Assert.assertTrue(tl.isContinueButtonClickable(), "Continue button is not clickable");
-		    logger.info("Verified: Continue button is clickable");
-		    tl.clickContinueButton();
-		    logger.info("Action: Continue button clicked");
-		    Thread.sleep(1000);
+		    try {
+		    	Assert.assertTrue(travelInsurance.isContinueButtonClickable(), "Continue button is not clickable");
+			    logger.info("Verified: Continue button is clickable");
+			    extentTest.log(Status.PASS, "Verified: Continue button is clickable");
+			    travelInsurance.clickContinueButton();
+			    logger.info("Action: Continue button clicked");
+			    extentTest.log(Status.INFO, "Action: continue button clicked");
+			    Thread.sleep(1000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
+		    
+		    // ======================== Number Of Travellers Selection ========================
 		    
 		    //Travellers list is clickable 
-		    Assert.assertTrue(tl.isTravellersListPopulated(), "Traveller list is not populated");
-		    logger.info("Verified: Traveller dropdown populated");
-		    tl.selectTravellers(numberOfTravellers);
-		    logger.info("Action: Number of travellers selected");
-		    Thread.sleep(1000);
+		    try {
+		    	Assert.assertTrue(travelInsurance.isTravellersListPopulated(), "Traveller list is not populated");
+			    logger.info("Verified: Traveller dropdown populated");
+			    extentTest.log(Status.PASS, "Verified: Traveller dropdown populated");
+			    travelInsurance.selectTravellers(numberOfTravellers);
+			    logger.info("Action: Number of travellers selected");
+			    extentTest.log(Status.INFO, "Action: Number of Travellers selected - "+ numberOfTravellers );
+			    Thread.sleep(1000);	
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
+		    
+		    // ======================== Traveller Age Selection ========================
+		    
 		    
 		    //click age box
-		    Assert.assertTrue(tl.isFirstAgeBoxClickable(), "First age box is not clickable");
-		    logger.info("Verified: First age box is clickable");
-		    tl.clickFirstAgeBox();
-		    logger.info("Action: First age box clicked");
-		    Thread.sleep(1000);
-
+		    try {
+		    	Assert.assertTrue(travelInsurance.isFirstAgeBoxClickable(), "First age box is not clickable");
+			    logger.info("Verified: First age box is clickable");
+			    extentTest.log(Status.PASS, "Verified: First age box is clickable");
+			    travelInsurance.clickFirstAgeBox();
+			    logger.info("Action: First age box clicked");
+			    extentTest.log(Status.INFO, "Action: First Age box clicked");
+			    Thread.sleep(1000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
+		    
 		    //select first traveller Age
-		    Assert.assertTrue(tl.isAgeListPopulated(), "Age list is empty or not clickable");
-		    logger.info("Verified: Age selection list is populated");
-		    tl.selectAge(age1);
-		    logger.info("Action: First Traveller Age is selected ");
-		    Thread.sleep(1000);
-
+		    try {
+		    	Assert.assertTrue(travelInsurance.isAgeListPopulated(), "Age list is empty or not clickable");
+			    logger.info("Verified: Age selection list is populated");
+			    extentTest.log(Status.PASS, "verified: Age selection list is populated");
+			    travelInsurance.selectAge(age1);
+			    logger.info("Action: First Traveller Age is selected ");
+			    extentTest.log(Status.INFO, "Action: First Traveller Age selected - "+ age1);
+			    Thread.sleep(1000);
+		    	
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		   
+             
 		    //click age box
-		    Assert.assertTrue(tl.isSecondAgeBoxClickable(), "Second age box is not clickable");
-		    logger.info("Verified: Second age box is clickable");
-		    tl.clickSecondAgeBox();
-		    logger.info("Action: Second age box clicked");
-		    Thread.sleep(1000);
+            try {
+            	Assert.assertTrue(travelInsurance.isSecondAgeBoxClickable(), "Second age box is not clickable");
+    		    logger.info("Verified: Second age box is clickable");
+    		    extentTest.log(Status.PASS, "Verified: Second age box is clickable");
+    		    travelInsurance.clickSecondAgeBox();
+    		    logger.info("Action: Second age box clicked");
+    		    extentTest.log(Status.INFO, "Action: Second Age box clicked");
+    		    Thread.sleep(1000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
 		    
+		    		    
 		    //select second traveller Age
-		    tl.selectAge(age2);
-		    logger.info("Action: Second Traveller Age is selected ");
-		    Thread.sleep(1000);
+		    try {
+		    	Assert.assertTrue(travelInsurance.isAgeListPopulated(), "Age list is empty or not clickable");
+			    logger.info("Verified: Age selection list is populated");
+			    extentTest.log(Status.PASS, "Verified: Age selection list is populated");
+		    	travelInsurance.selectAge(age2);
+			    logger.info("Action: Second Traveller Age is selected ");
+			    extentTest.log(Status.INFO, "Action: Second Traveller Age selected - "+ age2);
+			    Thread.sleep(1000);	
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 
 		    //Select No radio button
-		    Assert.assertTrue(tl.isSelectNoClickable(), "‘No’ radio button is not clickable");
-		    logger.info("Verified: ‘No’ radio button is clickable");
-		    tl.selectNoButton();
-		    logger.info("Action: ‘No’ radio button selected");
-		    Thread.sleep(1000);
+		    try {
+		    	Assert.assertTrue(travelInsurance.isSelectNoClickable(), "‘No’ radio button is not clickable");
+			    logger.info("Verified: ‘No’ radio button is clickable");
+			    extentTest.log(Status.PASS, "Verified: ‘No’ radio button is clickable");
+			    travelInsurance.selectNoButton();
+			    logger.info("Action: ‘No’ radio button selected");
+			    extentTest.log(Status.INFO, "Action: ‘No’ radio button selected");
+			    Thread.sleep(1000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 
 		    //Click the Done Button
-		    Assert.assertTrue(tl.isDoneButtonClickable(), "Done button is not clickable");
-		    logger.info("Verified: Done button is clickable");
-		    tl.clickDoneButton();
-		    logger.info("Action: Done button clicked");
-		    Thread.sleep(1000);
+		    try {
+		    	Assert.assertTrue(travelInsurance.isDoneButtonClickable(), "Done button is not clickable");
+			    logger.info("Verified: Done button is clickable");
+			    extentTest.log(Status.PASS, "Verified: Done button is clickable");
+			    travelInsurance.clickDoneButton();
+			    logger.info("Action: Done button clicked");
+			    extentTest.log(Status.INFO, "Action: Done Button clicked");
+			    Thread.sleep(1000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 		    
 		    
 		    //Click the ViewPlans Button
-		    Assert.assertTrue(tl.isViewPlansButtonClickable(), "View Plans button is not clickable");
-		    logger.info("Verified: View Plans button is clickable");
-		    tl.clickViewPlans();
-		    logger.info("Action: View Plans button clicked");
-		    Thread.sleep(1000);
-		    logger.info("*** Completed: Travel Insurance Page ***");
+		    try {
+		    	Assert.assertTrue(travelInsurance.isViewPlansButtonClickable(), "View Plans button is not clickable");
+			    logger.info("Verified: View Plans button is clickable");
+			    extentTest.log(Status.PASS, "Verified: View Plans button is clickable");
+			    travelInsurance.clickViewPlans();
+			    logger.info("Action: View Plans button clicked");
+			    extentTest.log(Status.INFO, "Action: View Plans Button clicked");
+			    Thread.sleep(1000);	
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
 		    
+		    
+		    logger.info("*** Completed: Travel Insurance Page ***");
+		    extentTest.log(Status.INFO, "Action: Travel Insurance Page completed");
 		    
 		    
 		    //View Plans 
 
 		    logger.info("*** Initiated: View Plans Page ***");
+		    extentTest.log(Status.INFO, "*** Initiated: View Plans Page ***");
 		    
 		    // Students Plan button selection
-		    Assert.assertTrue(vp.isStudentPlanSelectable(), "Student plan button is not selectable");
-		    logger.info("Verified: Student plan button is selectable");
-		    vp.selectStudentPlans();
-		    logger.info("Action: Student plan selected");
+		    try {
+		    	Assert.assertTrue(viewplans.isStudentPlanSelectable(), "Student plan radio button is not selectable");
+				logger.info("Verified: Student plan radio button is selectable");
+				extentTest.log(Status.PASS, "Verified: Student plan radio button is selectable");
+				viewplans.selectStudentPlans();
+				logger.info("Action: Student plan radio button is selected");
+				extentTest.log(Status.INFO, "Action: Student plan radio button selected");
+				Thread.sleep(2000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		   
 
 		    //Select First Traveller CheckBox
-		    Thread.sleep(2000);
-		    Assert.assertTrue(vp.isFirstTravellerClickable(), "First traveller checkbox is not clickable");
-		    logger.info("Verified: First traveller checkbox is clickable");
-		    Thread.sleep(2000);
-		    vp.selectFirstTraveller();
-		    logger.info("Action: First traveller selected");
-		    Thread.sleep(2000); 
+		    try {
+		    	Assert.assertTrue(viewplans.isFirstTravellerClickable(), "First traveller checkbox is not clickable");
+			    logger.info("Verified: First traveller checkbox is clickable");
+			    extentTest.log(Status.PASS, "Verified: First traveller checkbox is clickable");
+			    Thread.sleep(2000);
+			    viewplans.selectFirstTraveller();
+			    logger.info("Action: First traveller checkbox checked");
+			    extentTest.log(Status.INFO, "Action: First Traveller checkbox checked");
+			    Thread.sleep(2000); 
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 		    
 		    //Select Second Traveller CheckBox
-		    Assert.assertTrue(vp.isSecondTravellerClickable(), "Second traveller checkbox is not clickable");
-		    logger.info("Verified: Second traveller checkbox is clickable");
-		    vp.selectSecondTraveller();
-		    logger.info("Action: Second traveller selected");
-		    Thread.sleep(2000);
+		    try {
+		    	Assert.assertTrue(viewplans.isSecondTravellerClickable(), "Second traveller checkbox is not clickable");
+			    logger.info("Verified: Second traveller checkbox is clickable");
+			    extentTest.log(Status.PASS, "Verified: Second traveller checkbox is clickable");
+			    viewplans.selectSecondTraveller();
+			    logger.info("Action: Second traveller checkbox checked");
+			    extentTest.log(Status.INFO, "Action: Second Traveller checkbox checked");
+			    Thread.sleep(2000);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 		    
 		    //Select the Travel Duration
-		    Assert.assertTrue(vp.isTravelDurationSelectable(travelDuration), "Travel Duration is not selectable");
-		    logger.info("Verified: Travel Duration is selectable");
-		    vp.selectTravelDuration(travelDuration);
-		    logger.info("Action: Travel duration selected");
+		    try {
+		    	Assert.assertTrue(viewplans.isTravelDurationSelectable(travelDuration), "Travel Duration is not selectable");
+			    logger.info("Verified: Travel Duration is selectable");
+			    extentTest.log(Status.PASS, "Verified: Travel Duration is selectable");
+			    viewplans.selectTravelDuration(travelDuration);
+			    logger.info("Action: Travel duration selected");
+			    extentTest.log(Status.INFO, "Action: Travel Duration selected - " + travelDuration);
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 
 		    //Click the Apply Button
-		    Assert.assertTrue(vp.isApplyButtonClickable(), "Apply button is not clickable");
-		    logger.info("Verified: Apply button is clickable");
-		    vp.clickApplyButton();
-		    logger.info("Action: Apply button clicked");
+		    try {
+		    	Assert.assertTrue(viewplans.isApplyButtonClickable(), "Apply button is not clickable");
+			    logger.info("Verified: Apply button is clickable");
+			    extentTest.log(Status.PASS, "Verified: Apply button is clickable");
+			    viewplans.clickApplyButton();
+			    logger.info("Action: Apply button clicked");
+			    extentTest.log(Status.INFO, "Action: Apply Button clicked");
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 		    
 		    
 		    //Select the Sort By Radio Button
-		    Assert.assertTrue(vp.issortByButtonClickable(), "Sort By option is not clickable");
-		    logger.info("Verified: Sort By button is clickable");
-		    vp.selectSortBy();
-		    logger.info("Action: Sort By selected");
+		    try {
+		    	Assert.assertTrue(viewplans.issortByButtonClickable(), "Sort By option is not clickable");
+			    logger.info("Verified: Sort By button is clickable");
+			    extentTest.log(Status.PASS, "Verified: Sort By button is clickable");
+			    viewplans.selectSortBy();
+			    logger.info("Action: Sort By selected");
+			    extentTest.log(Status.INFO, "Action: Sort By selected");
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 
 		    
 		    //Select the Low to High radio button
-		    Assert.assertTrue(vp.isLowToHighButtonClickable(), "Low-to-High option is not clickable");
-		    logger.info("Verified: Low-to-High button is clickable");
-		    vp.selectLowToHigh();
-		    logger.info("Action: Premium sorted from low to high");
+		    try {
+		    	Assert.assertTrue(viewplans.isLowToHighButtonClickable(), "Low-to-High option is not clickable");
+			    logger.info("Verified: Low-to-High button is clickable");
+			    extentTest.log(Status.PASS, "Verified: Low-to-High button is clickable");
+			    viewplans.selectLowToHigh();
+			    logger.info("Action: Plans sorted from low to high prices");
+			    extentTest.log(Status.INFO, "Action: plans sorted from low to high prices");
+		    }catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 		   
 		    
 		    //Printing the Travel Insurance Plan Details
-		    Assert.assertTrue(vp.isNameListPopulated(), "Names list is not populated");
+		    try {
+		    Assert.assertTrue(viewplans.isNameListPopulated(), "Names list is not populated");
 		    logger.info("Verified: Names list populated");
-
-		    Assert.assertTrue(vp.isPriceListPopulated(), "Prices list is not populated");
+		    extentTest.log(Status.PASS, "Verified: Names list populated");
+		    }
+		    catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
+		    try {
+		    Assert.assertTrue(viewplans.isPriceListPopulated(), "Prices list is not populated");
 		    logger.info("Verified: Price list populated");
+		    extentTest.log(Status.PASS, "Verified: Price list populated");
+		    }
+		    catch(AssertionError e) {
+	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+	        	throw e;
+	        }
+		    
 
-		    vp.printList();
+		    viewplans.printList();
 		    logger.info("The List of three lowest international  travel insurance plan with amount and insurance provider company have been printed...");
+		    extentTest.log(Status.INFO, "Action: The List of three lowest international  travel insurance plan with amount and insurance provider company have been printed...");
 		    
 		    logger.info("*** Completed: View Plans Results ***");	
+		    extentTest.log(Status.INFO, "Action: successfully completed the execution and results are printed");
 		    	    
 			} 
 			

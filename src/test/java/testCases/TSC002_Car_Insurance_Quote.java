@@ -2,7 +2,6 @@ package testCases;
 import java.time.Duration;
 
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -128,7 +127,7 @@ public class TSC002_Car_Insurance_Quote extends BaseClass{
 	        boolean isbandclickable = insurancePage.isBrandclickable(carBrand);
 	        Assert.assertTrue(isbandclickable, "band not clickable");
 	        logger.info("Verified: Brand '" + carBrand + "' is clickable");
-	        extentTest.log(Status.INFO, "Verified: Brand '" + carBrand + "' is clickable");
+	        extentTest.log(Status.PASS, "Verified: Brand '" + carBrand + "' is clickable");
 	        }
 	        catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
