@@ -72,7 +72,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 	        	throw e;
 	        }
 	    	
-		    Thread.sleep(1000);
+		    //Thread.sleep(1000);
 		    
 		    // ======================== Country Selection ========================
 		    
@@ -84,7 +84,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.selectCountry(country);
 			    logger.info("Action: Country selected – " + country);
 			    extentTest.log(Status.INFO, "Action: country selected - " + country);
-			    Thread.sleep(1000);
+			   // Thread.sleep(1000);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -100,7 +100,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.clickStartDate();
 			    logger.info("Action: Start date field clicked");
 			    extentTest.log(Status.INFO, "Action: Start date field clicked");
-			    Thread.sleep(3000);
+			    Thread.sleep(300);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -110,7 +110,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 		    	travelInsurance.selectStartDate(startDate);
 			    logger.info("Action: Start date selected");
 			    extentTest.log(Status.INFO, "Action: start date selected - "+ startDate);
-			    Thread.sleep(1000);
+			    Thread.sleep(200);
 		    
 		    
 		    
@@ -121,7 +121,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 		    	travelInsurance.selectEndDate(endDate);
 				logger.info("Action: End date selected");
 				extentTest.log(Status.INFO, "Action: end date selected - "+ endDate);
-				Thread.sleep(1000);
+				Thread.sleep(200);
 		    
 		    
 		    
@@ -133,7 +133,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.clickContinueButton();
 			    logger.info("Action: Continue button clicked");
 			    extentTest.log(Status.INFO, "Action: continue button clicked");
-			    Thread.sleep(1000);
+			    Thread.sleep(500);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -150,7 +150,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.selectTravellers(numberOfTravellers);
 			    logger.info("Action: Number of travellers selected");
 			    extentTest.log(Status.INFO, "Action: Number of Travellers selected - "+ numberOfTravellers );
-			    Thread.sleep(1000);	
+			    Thread.sleep(100);	
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -168,7 +168,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.clickFirstAgeBox();
 			    logger.info("Action: First age box clicked");
 			    extentTest.log(Status.INFO, "Action: First Age box clicked");
-			    Thread.sleep(1000);
+			    Thread.sleep(100);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -183,7 +183,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.selectAge(age1);
 			    logger.info("Action: First Traveller Age is selected ");
 			    extentTest.log(Status.INFO, "Action: First Traveller Age selected - "+ age1);
-			    Thread.sleep(1000);
+			    Thread.sleep(100);
 		    	
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
@@ -199,7 +199,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
     		    travelInsurance.clickSecondAgeBox();
     		    logger.info("Action: Second age box clicked");
     		    extentTest.log(Status.INFO, "Action: Second Age box clicked");
-    		    Thread.sleep(1000);
+    		    Thread.sleep(100);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -214,7 +214,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 		    	travelInsurance.selectAge(age2);
 			    logger.info("Action: Second Traveller Age is selected ");
 			    extentTest.log(Status.INFO, "Action: Second Traveller Age selected - "+ age2);
-			    Thread.sleep(1000);	
+			    Thread.sleep(100);	
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -229,7 +229,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.selectNoButton();
 			    logger.info("Action: ‘No’ radio button selected");
 			    extentTest.log(Status.INFO, "Action: ‘No’ radio button selected");
-			    Thread.sleep(1000);
+			    //Thread.sleep(1000);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -244,7 +244,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.clickDoneButton();
 			    logger.info("Action: Done button clicked");
 			    extentTest.log(Status.INFO, "Action: Done Button clicked");
-			    Thread.sleep(1000);
+			   // Thread.sleep(1000);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -260,7 +260,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.clickViewPlans();
 			    logger.info("Action: View Plans button clicked");
 			    extentTest.log(Status.INFO, "Action: View Plans Button clicked");
-			    Thread.sleep(1000);	
+			   // Thread.sleep(1000);	
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -284,7 +284,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 				viewplans.selectStudentPlans();
 				logger.info("Action: Student plan radio button is selected");
 				extentTest.log(Status.INFO, "Action: Student plan radio button selected");
-				Thread.sleep(2000);
+				//Thread.sleep(2000);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -296,11 +296,12 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 		    	Assert.assertTrue(viewplans.isFirstTravellerClickable(), "First traveller checkbox is not clickable");
 			    logger.info("Verified: First traveller checkbox is clickable");
 			    extentTest.log(Status.PASS, "Verified: First traveller checkbox is clickable");
-			    Thread.sleep(2000);
+			   // Thread.sleep(2000);
+			    Thread.sleep(1000);
 			    viewplans.selectFirstTraveller();
 			    logger.info("Action: First traveller checkbox checked");
 			    extentTest.log(Status.INFO, "Action: First Traveller checkbox checked");
-			    Thread.sleep(2000); 
+			    //Thread.sleep(2000); 
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -315,7 +316,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    viewplans.selectSecondTraveller();
 			    logger.info("Action: Second traveller checkbox checked");
 			    extentTest.log(Status.INFO, "Action: Second Traveller checkbox checked");
-			    Thread.sleep(2000);
+			    Thread.sleep(100);
 		    }catch(AssertionError e) {
 	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
 	        	throw e;
@@ -353,6 +354,7 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 		    
 		    //Select the Sort By Radio Button
 		    try {
+		    	Thread.sleep(500);
 		    	Assert.assertTrue(viewplans.issortByButtonClickable(), "Sort By option is not clickable");
 			    logger.info("Verified: Sort By button is clickable");
 			    extentTest.log(Status.PASS, "Verified: Sort By button is clickable");
