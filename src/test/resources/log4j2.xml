@@ -1,31 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Root configuration element for Log4j2 -->
 <Configuration status="INFO">
+
+	<!-- Define reusable properties for paths and patterns -->
 	<Properties>
+		<!-- Directory where log files will be stored -->
         <Property name="log-path">./logs</Property>
+        
+        
+		<!-- Log message format pattern:
+		             %d - timestamp
+		             %-5p - log level (INFO, ERROR, etc.)
+		             %c{1} - logger name (shortened to class name)
+		             %L - line number
+		             %m - log message
+		             %n - newline -->        
         <Property name="log-pattern">%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n</Property>
     </Properties>
 
 
-
+	<!-- Define where and how logs will be output -->
 	<Appenders>
+		<!-- Console appender: outputs logs to the terminal or IDE console -->
         <Console name="Console" target="SYSTEM_OUT">
+        	<!-- Apply the defined log pattern to console output -->
             <PatternLayout pattern="${log-pattern}"/>
         </Console>
 
+		<!-- RollingFile appender: writes logs to a file and rotates them based on time and size -->
         <RollingFile name="File" fileName="${log-path}/automation.log" filePattern="${log-path}/automation-%d{MM-dd-yyyy}-%i.log.gz">
+            
+            
+            <!-- Apply the defined log pattern to file output -->            
             <PatternLayout pattern="${log-pattern}"/>
+            
+            <!-- Define when the log file should roll over -->
             <Policies>
+            
+            	<!-- Roll over daily -->
                 <TimeBasedTriggeringPolicy/>
+                
+                <!-- Roll over when file size exceeds 1MB -->
                 <SizeBasedTriggeringPolicy size="1MB"/>
             </Policies>
+            
+            <!-- Keep a maximum of 10 rolled-over log files -->
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>
     </Appenders>
 
+	<!-- Define logging behavior and attach appenders -->
     <Loggers>
+    	
+    	<!-- Root logger: applies to all loggers unless overridden -->
         <Root level="INFO">
+        	<!-- Uncomment the following line to enable console logging -->
             <!--<AppenderRef ref="Console"/>-->
+            
+            <!-- Enable file logging by referencing the RollingFile appender -->
             <AppenderRef ref="File"/>
         </Root>
     </Loggers>

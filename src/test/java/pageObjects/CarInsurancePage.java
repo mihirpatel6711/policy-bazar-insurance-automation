@@ -49,14 +49,30 @@ public class CarInsurancePage extends BasePage {
     
 
    //Action methods
+    
+
+	
+    //Clicks the "Start" button on the page.
     public void clickStart() {
     	clickStartButton.click();
     }
     
+	/**
+	 * Checks whether the provided list of WebElements is populated.
+	 *
+	 * @param elements List of WebElements to validate
+	 * @return true if the list is not null and not empty; false otherwise
+	 */
     public boolean isListPopulated(List<WebElement> elements) {
         return elements != null && !elements.isEmpty();
-    }
-    
+    }    
+
+	/**
+	 * Determines if a city element is clickable based on the provided city name.
+	 *
+	 * @param cityName Name of the city to verify
+	 * @return true if the city element is clickable; false otherwise
+	 */
     public boolean isCityClickable(String cityName) {
         for (WebElement city : selectcity) {
             if (city.getText().equalsIgnoreCase(cityName)) {
@@ -64,10 +80,14 @@ public class CarInsurancePage extends BasePage {
             	return isElementClickable(city);  
             }
         }
-		return false;
-        
-    }
-    
+		return false;        
+    }    
+
+	/**
+	 * Selects a city from the list based on the provided city name.
+	 *
+	 * @param cityName Name of the city to select
+	 */
     public void chooseCity(String cityName) {
         for (WebElement city : selectcity) {
             if (city.getText().equalsIgnoreCase(cityName)) {
@@ -76,18 +96,28 @@ public class CarInsurancePage extends BasePage {
                 break;
             }
         }
-    }
+    }    
+
+	/**
+	 * Determines if a brand element is clickable based on the provided brand name.
+	 *
+	 * @param brandName Name of the brand to verify
+	 * @return true if the brand element is clickable; false otherwise
+	 */
     public boolean isBrandclickable(String brandName) {
         for (WebElement brand : selectbrandname) {
             if (brand.getText().equalsIgnoreCase(brandName)) {
-            	return isElementClickable(brand);
-                
+            	return isElementClickable(brand);                
             }
         }
 		return false;
-    }
-    
+    }    
 
+	/**
+	 * Selects a brand from the list based on the provided brand name.
+	 *
+	 * @param brandName Name of the brand to select
+	 */
     public void chooseBrand(String brandName) {
         for (WebElement brand : selectbrandname) {
             if (brand.getText().equalsIgnoreCase(brandName)) {
@@ -96,7 +126,14 @@ public class CarInsurancePage extends BasePage {
                 break;
             }
         }
-    }
+    }    
+
+	/**
+	 * Determines if a car model element is clickable based on the provided model name.
+	 *
+	 * @param modelName Name of the car model to verify
+	 * @return true if the model element is clickable; false otherwise
+	 */
     public boolean isModelclickable(String modelName) {
         for (WebElement model : carmodel) {
             if (model.getText().equalsIgnoreCase(modelName)) {
@@ -104,8 +141,13 @@ public class CarInsurancePage extends BasePage {
             }
         }
 		return false;
-    }
+    }    
 
+	/**
+	 * Selects a car model from the list based on the provided model name.
+	 *
+	 * @param modelName Name of the car model to select
+	 */
     public void chooseModel(String modelName) {
         for (WebElement model : carmodel) {
             if (model.getText().equalsIgnoreCase(modelName)) {
@@ -114,7 +156,14 @@ public class CarInsurancePage extends BasePage {
                 break;
             }
         }
-    }
+    }    
+
+	/**
+	 * Determines if a fuel type element is clickable based on the provided fuel type.
+	 *
+	 * @param fuelType Type of fuel to verify
+	 * @return true if the fuel type element is clickable; false otherwise
+	 */
     public boolean isFuelTypeclickable(String fuelType) {
         for (WebElement fuel : carfueltype) {
             if (fuel.getText().equalsIgnoreCase(fuelType)) {
@@ -124,6 +173,11 @@ public class CarInsurancePage extends BasePage {
 		return false;
     }
 
+	/**
+	 * Selects a fuel type from the list based on the provided fuel type.
+	 *
+	 * @param fuelType Type of fuel to select
+	 */
     public void chooseFuelType(String fuelType) {
         for (WebElement fuel : carfueltype) {
             if (fuel.getText().equalsIgnoreCase(fuelType)) {
@@ -132,7 +186,14 @@ public class CarInsurancePage extends BasePage {
                 break;
             }
         }
-    }
+    }    
+
+	/**
+	 * Determines if a variant element is clickable based on the provided variant name.
+	 *
+	 * @param variantName Name of the variant to verify
+	 * @return true if the variant element is clickable; false otherwise
+	 */
     public boolean isVariantclickable(String variantName) {
         for (WebElement variant : carvariant) {
             if (variant.getText().equalsIgnoreCase(variantName)) {
@@ -141,8 +202,13 @@ public class CarInsurancePage extends BasePage {
             }
         }
 		return false;
-    }
+    }    
 
+	/**
+	 * Selects a variant from the list based on the provided variant name.
+	 *
+	 * @param variantName Name of the variant to select
+	 */
     public void chooseVariant(String variantName) {
         for (WebElement variant : carvariant) {
             if (variant.getText().equalsIgnoreCase(variantName)) {
@@ -151,17 +217,33 @@ public class CarInsurancePage extends BasePage {
                 break;
             }
         }
-    }
-    
+    }    
+
+	/**
+	 * Inputs the user's full name into the corresponding field.
+	 *
+	 * @param name Full name to be entered
+	 */
     public void setName(String name) {
 		fullname.sendKeys(name);
 		System.out.println("Name entered: " + name);
 	}
+    
+    /**
+	 * Inputs the user's mobile number into the corresponding field.
+	 *
+	 * @param number Mobile number to be entered
+	 */
     public void setMobileNumber(String number) {
     	 MobileNumber.sendKeys(number);
     	 System.out.println("Number entered: " + number);
-    }
+    }    
 
+	/**
+	 * Captures and returns the error message displayed for the mobile number field.
+	 *
+	 * @return Error message text if present; otherwise, a default message
+	 */
     public String capturePhoneErrorMessage() {
     try {
           return errormessage.getText();

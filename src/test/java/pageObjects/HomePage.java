@@ -7,14 +7,16 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 	
+	// Actions instance for performing advanced user interactions
 	Actions act=new Actions(driver);
+	
 	public HomePage(WebDriver driver)
 	{
 		super(driver);
 	}
 	
 
-	//Locators
+		// ===================== Locators =====================
 
 		//For Insurance Products
 		@FindBy(xpath="//ul[@class='ruby-menu']/li[2]")
@@ -36,29 +38,33 @@ public class HomePage extends BasePage {
 		WebElement healthInsurance;
 
 
+		// ===================== Action Methods =====================
 
 
-		//Action Methods
-
-		//Hovering on the Insurance product
-		public void HoverOnInsuranceProducts() {
-			
+		/**
+		 	* Performs a mouse hover over the Insurance Products menu.
+		  */
+		public void HoverOnInsuranceProducts() {			
 			act.moveToElement(insuranceProductsButton).perform();
-		}
+		}		
 
-
-		//Selecting the Health insurance 
+		/**
+		     * Clicks on the Health Insurance link.
+		     */
 		public void healthInsuranceClick() {
-
 			healthInsurance.click();
 		}
 
-		//Navigating to the Car Insurance Page
+		/**
+		     * Clicks on the Car Insurance link to navigate to the Car Insurance page.
+		     */
 		public void carInsuranceClick() {
 			carInsurance.click();
 		}
 
-		//Navigating to the Travel Insurance Page
+		/**
+		     * Clicks on the Travel Insurance link to navigate to the Travel Insurance page.
+		     */
 		public void travelInsurance() {
 			travelInsurance.click();
 		}

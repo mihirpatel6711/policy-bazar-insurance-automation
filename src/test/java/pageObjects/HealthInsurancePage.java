@@ -56,22 +56,41 @@ public class HealthInsurancePage extends BasePage {
 //			act.moveToElement(hovaInsuDropdown).perform();
 //		}
 		
-		public boolean isDropdownPresent() {     //Validation
+		
+
+		/**
+		 * Checks if the insurance dropdown container is displayed on the page.
+		 *
+		 * @return true if the dropdown is visible; false otherwise
+		 */
+		public boolean isDropdownPresent() {     
 			return insuDropdownContainer.isDisplayed();
-		}
-		
-		
-			
-			
+		}		
+
+		/**
+		 * Validates whether the given health-related WebElement is clickable.
+		 *
+		 * @param element WebElement to validate
+		 * @return true if the element is clickable; false otherwise
+		 */
 		public boolean isHealthElementClickable( WebElement element) {   //validation
 			return isElementClickable(element);
-		}
-		
-		
+		}		
+
+		/**
+		 * Clicks on the Health Insurance section or link.
+		 */
 		public void clickHealthInsu() {
 			healthInsurance.click();
-		}
-		
+		}		
+
+		/**
+		 * Validates whether the current page title matches the expected title
+		 * after redirection to the Health Insurance page.
+		 *
+		 * @param driver WebDriver instance
+		 * @return true if the title matches the expected value; false otherwise
+		 */
 		public Boolean validateRedirection(WebDriver driver) {
 			 String title=driver.getTitle();
 			 if(title.equals("Health Insurance: Buy Medical Insurance Plans @ ₹10/Day*")){
@@ -79,18 +98,31 @@ public class HealthInsurancePage extends BasePage {
 			 }else {
 				 return false;
 			 }
-		}
-		
-		
+		}		
+
+		/**
+		 * Performs a mouse hover action over the Health dropdown menu.
+		 *
+		 * @param driver WebDriver instance
+		 */
 		public void hoverHealth(WebDriver driver) {
 			act= new Actions(driver);
 			act.moveToElement(hovaHealthDropdown).perform();
-		}
-		
-		public boolean isHealthDropdownPresent() {     //Validation
+		}		
+
+		/**
+		 * Checks if the health dropdown container is displayed on the page.
+		 *
+		 * @return true if the dropdown is visible; false otherwise
+		 */		
+		public boolean isHealthDropdownPresent() {     
 			return healthDropdownContainer.isDisplayed();
-		}
-		
+		}		
+
+		/**
+		 * Prints the text of each menu item under the health dropdown to the console.
+		 * Useful for debugging or verifying UI content.
+		 */
 		public void printMenuItems() {
 //			List<WebElement> mylist= driver.findElements(By.xpath("/html/body/div[1]/nav/div/div[2]/div/div[2]/ul/li[3]/ul/li"));
 			for(WebElement innerElements: menuItems) {

@@ -32,13 +32,30 @@ import java.io.FileInputStream;
 
 
 
+
+/**
+ * BaseClass serves as the foundational setup and teardown class for all test cases.
+ * It handles browser initialization, configuration loading, logging setup, and utility methods.
+ */
 public class BaseClass {
 	
 	
 	public static WebDriver driver;
-	public Logger logger;
-	public Properties p;
+	public Logger logger;			// Logger instance for logging test execution
+	public Properties p;			// Properties object to load configuration values
 	
+	
+	
+
+/**
+     * Initializes the WebDriver based on the specified OS and browser.
+     * Supports both local and remote execution environments.
+     *
+     * @param os Operating system (e.g., Windows, Mac)
+     * @param br Browser name (e.g., Chrome, Edge)
+     * @throws IOException if configuration file or remote URL fails to load
+     */	
+
 	@BeforeClass
 	@Parameters({"os","browser"})
 	public void setup(String os, String br) throws IOException {
@@ -46,24 +63,25 @@ public class BaseClass {
 		
 		
 		try {
-		
-		// Loading properties file from the path 
+			
+		// Load configuration properties from file 
 		FileReader file = new FileReader(".//src//test//resources//config.properties");
 		p = new Properties();
 		p.load(file);
 		
-		// loading log4j2 file 
+		
+		// Initialize logger using Log4j2
 		logger = LogManager.getLogger(this.getClass());
-		ChromeOptions chromeOptions;
+		ChromeOptions chromeOptions;	
 		
-		// usage ==> logger.info("**** Starting TC_003_LoginDDT *****"); in your test classes 
-		
+		 
+		// Check execution environment: remote or local
 		if(p.getProperty("execution_env").equalsIgnoreCase("remote"))
 		{
 			System.out.println("Executing Remotely");
 			DesiredCapabilities capabilities=new DesiredCapabilities();
 			
-			//os
+			// Set platform based on OS parameter
 			if(os.equalsIgnoreCase("windows"))
 			{
 				capabilities.setPlatform(Platform.WIN11);
@@ -78,9 +96,7 @@ public class BaseClass {
 				return;
 			}
 			
-			//browser
-			// launching browser based on condition 
-			
+			// Set browser capabilities			
 			switch(br.toLowerCase())
 			{
 			case "chrome": capabilities.setBrowserName("chrome");
@@ -95,45 +111,20 @@ public class BaseClass {
 			case "edge": capabilities.setBrowserName("MicrosoftEdge"); break;
 			default: System.out.println("No matching browser"); return;
 			}
-//			switch(br.toLowerCase()) {
-//			
-//			case "chrome":
-//				capabilities.setBrowserName(br.toLowerCase());
-//				ChromeOptions chromeOptions = new ChromeOptions();
-//	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
-//	            chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-//	            chromeOptions.setExperimentalOption("useAutomationExtension", false);
-//	            chromeOptions.addArguments("--start-maximized");
-//	            driver = new ChromeDriver(chromeOptions);
-//	            break;
-//			case "edge" : 
-//				EdgeOptions edgeOptions = new EdgeOptions();
-//	            edgeOptions.addArguments("--disable-blink-features=AutomationControlled");
-//	            edgeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-//	            edgeOptions.setExperimentalOption("useAutomationExtension", false);
-//	            edgeOptions.addArguments("--start-maximized");
-//	            driver = new EdgeDriver(edgeOptions);
-//	            break;
-//			default : System.out.println("No matching browser....");
-//			return ;	
-//			
-//			}
 			
 			//driver=new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
-			// 1. Define the URL string
+			// This was depreciated
+			
+			// Convert string URL to URI and then to URL for remote execution
 			String seleniumHubUrlString = "http://192.168.1.38:4444/wd/hub";
-
-			// 2. Create a URI object for robust parsing
-			// This is often preferred for creating the resource identifier first
 			URI uri = new URI(seleniumHubUrlString);
-
-			// 3. Convert the URI object to a URL object
-			// The toURL() method of URI can throw MalformedURLException
 			URL seleniumHubUrl = uri.toURL();
 
+			// Initialize RemoteWebDriver
 			driver = new RemoteWebDriver(seleniumHubUrl, capabilities);
 		}
 		
+		// Local execution setup
 		if(p.getProperty("execution_env").equalsIgnoreCase("local"))
 		{
 
@@ -160,12 +151,9 @@ public class BaseClass {
 			return ;	
 			
 			}
-		}
+		}		
 		
-		
-		
-		
-		
+		// Set implicit wait and maximize window
 		
 		//driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -182,28 +170,40 @@ public class BaseClass {
 	}
 	
 	
+
+/**
+     * Quits the WebDriver instance after all tests are executed.
+     */
 	@AfterClass
 	public void tearDown(){
 		driver.quit();
 		
 	}
-	
+
+    /**
+     * Navigates to the application URL before each test method.
+     */
 	@BeforeMethod
 	public void start() {
 		driver.navigate().to(p.getProperty("appurl"));
-	}
-	
+	}	
+
+    /**
+     * Clears cookies and refreshes the browser after each test method.
+     */
 	@AfterMethod
 	public void restart() {
 		driver.manage().deleteAllCookies();
-		driver.navigate().refresh();
-		
-		
-		
-		
+		driver.navigate().refresh();		
 	}
 	
-	
+    /**
+     * Captures a screenshot of the current browser window.
+     *
+     * @param tname Test name or identifier for the screenshot file
+     * @return Path to the saved screenshot file
+     * @throws IOException if file saving fails
+     */
 	public String captureScreen(String tname) throws IOException {
 
 		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());

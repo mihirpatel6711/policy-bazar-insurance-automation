@@ -68,10 +68,25 @@ public class TravelInsurancePage extends BasePage {
     WebElement ViewPlansButton;
     
     
+
+	/**
+	 * Checks if a list of WebElements is populated.
+	 *
+	 * @param elements List of WebElements to validate
+	 * @return true if the list is not null and not empty; false otherwise
+	 */
     public static boolean isListPopulated(List<WebElement> elements) {
         return elements != null && !elements.isEmpty();
     }
 	
+
+	/**
+	 * Validates if a specific value is selectable from a dropdown WebElement.
+	 *
+	 * @param ele   Dropdown WebElement
+	 * @param value Value to be selected
+	 * @return true if the value is present and enabled; false otherwise
+	 */
     public static boolean isDropdownValueSelectable(WebElement ele,String value) {
 		Select select = new Select(ele);
 		List<WebElement> options = select.getOptions();
@@ -84,50 +99,92 @@ public class TravelInsurancePage extends BasePage {
 	return false;
 	}
     
-    //Action Methods
-        
-    //one - 1
+
+	 // ===================== Action Methods =====================
+	
+	 /** Section 1: Input Field */
+	
+	 /**
+	  * Checks if the input field is clickable.
+	  *
+	  * @return true if clickable; false otherwise
+	  */    
     public boolean isInputFieldClickable() {
     	return isElementClickable(inputBox);
     }
+    
+
+	/**
+	 * Clicks on the input field.
+	 */
     public void clickInput() {
     	inputBox.click();
-    }
+    }    
     
-    
-    //two - 2
+
+	/** Section 2: Country Selection */
+	
+	/**
+	 * Checks if the country list is populated.
+	 *
+	 * @return true if populated; false otherwise
+	 */
     public boolean isCountryListPopulated() {
     	return isListPopulated(Country);
-    }
+    }    
+
+	/**
+	 * Selects a country from the list by double-clicking.
+	 *
+	 * @param country Country name to select
+	 */
     public void selectCountry(String country) {
     	
-    	for(WebElement ele:Country) {
-    		
-    	
+    	for(WebElement ele:Country) {    	
     		if(ele.getText().equalsIgnoreCase(country)) {
     			Actions act=new Actions(driver);
     			act.doubleClick(ele).perform();
     			break;
-    		}
-    		
+    		}    		
     	}
-    }
+    }    
     
-    
-    //three - 3
+
+	/** Section 3: Start Date Selection */
+	
+	/**
+	 * Checks if the start date field is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isStartDateClickable() {
     	return isElementClickable(startDate);
-    }
+    }    
+
+	/**
+	 * Clicks on the start date field.
+	 */
     public void clickStartDate() {
     	startDate.click();
-    }
+    }    
     
-    
-    
-    //four - 4
+
+	/** Section 4: Start Date Calendar Navigation */
+	
+	/**
+	 * Checks if the next button in the calendar is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isStartDateNextClickable() {
     	return isElementClickable(clickNextButton);
-    }
+    }    
+
+	/**
+	 * Selects a start date from the calendar.
+	 *
+	 * @param stdate Date in format yyyy/MM/dd
+	 */
     public void selectStartDate(String stdate) {
     	
     	String st[]=stdate.split("/");
@@ -140,24 +197,33 @@ public class TravelInsurancePage extends BasePage {
 		WebDriverWait wait=new WebDriverWait(driver,Duration.ofMillis(500));
 		
     	while(true) {
-
-
 			try{
-
 				WebElement ele=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label='"+startdate+"']")));
 				ele.click();
 				break;
 			}catch(Exception e) {
 				clickNextButton.click();
 			}
-
 		}
-    }
+    }    
     
-    //five - 5
+
+	/** Section 5: End Date Selection */
+	
+	/**
+	 * Checks if the next button for end date selection is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isEndDateClickNextClickable() {
     	return isElementClickable(clickNextButton);
-    }
+    }    
+
+	/**
+	 * Selects an end date from the calendar.
+	 *
+	 * @param eddate Date in format yyyy/MM/dd
+	 */
     public void selectEndDate(String eddate) {
     	
     	String st[]=eddate.split("/");
@@ -184,18 +250,41 @@ public class TravelInsurancePage extends BasePage {
     }
  
     
-    //six - 6
+	/** Section 6: Continue Button */
+	
+	/**
+	 * Checks if the continue button is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isContinueButtonClickable() {
     	return isElementClickable(continueButton);
-    }
+    }    
+
+	/**
+	 * Clicks the continue button.
+	 */
     public void clickContinueButton() {
     	continueButton.click();
     }
     
-    //seven - 7
+
+    /** Section 7: Traveller Selection */
+
+	/**
+	 * Checks if the traveller list is populated.
+	 *
+	 * @return true if populated; false otherwise
+	 */
     public boolean isTravellersListPopulated() {
     	return isListPopulated(selectNumberOfTravellers);
-    }
+    }    
+
+	/**
+	 * Selects the number of travellers.
+	 *
+	 * @param numberOfTravellers Number of travellers to select
+	 */
     public void selectTravellers(String numberOfTravellers) {
     	int i=0;
     	for(WebElement ele:selectNumberOfTravellers) {
@@ -210,14 +299,25 @@ public class TravelInsurancePage extends BasePage {
     			}	
     		}
     		i++;
-    	}
-    	
-    }
-    
-    //eight - 8
+    	}    	
+    }    
+
+	/** Section 8: Age Selection */
+	
+	/**
+	 * Checks if the age selection list is populated.
+	 *
+	 * @return true if populated; false otherwise
+	 */
     public boolean isAgeListPopulated() {
     	return isListPopulated(AgeSelection);
-    }
+    }    
+
+	/**
+	 * Selects age from the list.
+	 *
+	 * @param age Age value to select
+	 */
     public void selectAge(String age) {
     	int i=0;
     	String st=age.concat(" ").concat("years_undefined");
@@ -237,42 +337,97 @@ public class TravelInsurancePage extends BasePage {
     	}
     }
     
-    //nine - 9
+
+	/** Section 9: First Age Box */
+	
+	/**
+	 * Checks if the first age box is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isFirstAgeBoxClickable() {
     	return isElementClickable(firstAgeBox);
-    }
+    }    
+
+	/**
+	 * Clicks the first age box.
+	 */
     public void clickFirstAgeBox() {
     	firstAgeBox.click();
-    }
+    }    
     
-    //ten - 10
+
+	/** Section 10: Second Age Box */
+	
+	/**
+	 * Checks if the second age box is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isSecondAgeBoxClickable() {
     	return isElementClickable(secondAgeBox);
-    }
+    }    
+
+	/**
+	 * Clicks the second age box.
+	 */
     public void clickSecondAgeBox() {
     	secondAgeBox.click();
-    }
-    
-    //eleven - 11
+    }    
+
+	/** Section 11: Select No Button */
+	
+	/**
+	 * Checks if the "No" selection button is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isSelectNoClickable() {
     	return isElementClickable(selectNo);
-    }
+    }    
+
+	/**
+	 * Clicks the "No" selection button.
+	 */
     public void selectNoButton() {
     	selectNo.click();
     }
     
-    //twelve - 12
+
+	/** Section 12: Done Button */
+	
+	/**
+	 * Checks if the Done button is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isDoneButtonClickable() {
     	return isElementClickable(DoneButton);
-    }
+    }    
+
+	/**
+	 * Clicks the Done button.
+	 */
     public void clickDoneButton() {
     	DoneButton.click();
     }
     
-    //thirteen - 13
+
+	/** Section 13: View Plans Button */
+	
+	/**
+	 * Checks if the View Plans button is clickable.
+	 *
+	 * @return true if clickable; false otherwise
+	 */
     public boolean isViewPlansButtonClickable() {
     	return isElementClickable(ViewPlansButton);
     }
+    
+
+	/**
+	 * Clicks the View Plans button.
+	 */
     public void clickViewPlans() {
     	ViewPlansButton.click();
     }
