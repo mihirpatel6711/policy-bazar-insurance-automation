@@ -54,6 +54,7 @@ public class BaseClass {
 		
 		// loading log4j2 file 
 		logger = LogManager.getLogger(this.getClass());
+		ChromeOptions chromeOptions;
 		
 		// usage ==> logger.info("**** Starting TC_003_LoginDDT *****"); in your test classes 
 		
@@ -82,7 +83,15 @@ public class BaseClass {
 			
 			switch(br.toLowerCase())
 			{
-			case "chrome": capabilities.setBrowserName("chrome"); break;
+			case "chrome": capabilities.setBrowserName("chrome");
+			capabilities.setBrowserName(br.toLowerCase());
+			chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+            chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+            chromeOptions.setExperimentalOption("useAutomationExtension", false);
+            chromeOptions.addArguments("--start-maximized");
+            capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+			break;
 			case "edge": capabilities.setBrowserName("MicrosoftEdge"); break;
 			default: System.out.println("No matching browser"); return;
 			}
@@ -132,7 +141,7 @@ public class BaseClass {
 			switch(br.toLowerCase()) {
 			
 			case "chrome":
-				ChromeOptions chromeOptions = new ChromeOptions();
+				chromeOptions = new ChromeOptions();
 	            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
 	            chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 	            chromeOptions.setExperimentalOption("useAutomationExtension", false);
