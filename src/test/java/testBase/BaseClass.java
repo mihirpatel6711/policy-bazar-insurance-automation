@@ -116,7 +116,7 @@ public class BaseClass {
 			// This was depreciated
 			
 			// Convert string URL to URI and then to URL for remote execution
-			String seleniumHubUrlString = "http://192.168.1.38:4444/wd/hub";
+			String seleniumHubUrlString = "http://192.168.1.8:4444/wd/hub";
 			URI uri = new URI(seleniumHubUrlString);
 			URL seleniumHubUrl = uri.toURL();
 

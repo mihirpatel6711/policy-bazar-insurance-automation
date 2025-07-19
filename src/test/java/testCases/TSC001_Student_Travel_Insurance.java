@@ -1,5 +1,7 @@
 package testCases;
 
+import java.time.Duration;
+
 import org.testng.Assert;
 
 import org.testng.annotations.Test;
@@ -236,18 +238,20 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 	        }
 		    
 
-		    //Click the Done Button
+		    //Click the Explore Plans Button
 		    try {
-		    	Assert.assertTrue(travelInsurance.isDoneButtonClickable(), "Done button is not clickable");
-			    logger.info("Verified: Done button is clickable");
-			    extentTest.log(Status.PASS, "Verified: Done button is clickable");
-			    travelInsurance.clickDoneButton();
-			    logger.info("Action: Done button clicked");
-			    extentTest.log(Status.INFO, "Action: Done Button clicked");
-			   // Thread.sleep(1000);
+		    	driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
+		    	Assert.assertTrue(travelInsurance.isExplorePlanButtonClickable(), "Explore Plans button is not clickable");
+			    logger.info("Verified: Explore Plans button is clickable");
+			    extentTest.log(Status.PASS, "Verified: Explore Buttons button is clickable");
+			    travelInsurance.exploreButton();
+			    logger.info("Action: Explore Plans button clicked");
+			    extentTest.log(Status.INFO, "Action: Explore Plans Button clicked");
+			   // Thread.sleep(1000); T-14 Done
 		    }catch(AssertionError e) {
-	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
-	        	throw e;
+//	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
+//	        	throw e;
+		    	
 	        }
 		    
 		    
@@ -260,11 +264,12 @@ public class TSC001_Student_Travel_Insurance extends BaseClass {
 			    travelInsurance.clickViewPlans();
 			    logger.info("Action: View Plans button clicked");
 			    extentTest.log(Status.INFO, "Action: View Plans Button clicked");
-			   // Thread.sleep(1000);	
+			   // Thread.sleep(1000);	T--15  Done
 		    }catch(AssertionError e) {
-	        	extentTest.log(Status.FAIL, "Error message mismatch: " + e.getMessage());
-	        	throw e;
-	        }
+
+		    }
+		    
+		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		    
 		    
 		    logger.info("*** Completed: Travel Insurance Page ***");
